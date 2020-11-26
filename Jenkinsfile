@@ -13,7 +13,7 @@ pipeline {
                     dockerImage = docker.build("mvechtomova/udacity-devops-capstone")
 	                docker.withRegistry('', 'dockerhub_credentials') {
 						dockerImage.push("latest")
-						dockerImage.push("v1")
+						dockerImage.push("v2")
 					}
 		        }
             }
@@ -23,6 +23,8 @@ pipeline {
 		        withAWS(credentials: 'aws-static', region: 'us-west-2') {
 			        sh "aws eks --region us-west-2 update-kubeconfig --name UdacityCapstoneProject-cluster"
                     sh "kubectl apply -f k8s/udacity-capstone.yaml"
+                    sh "kubectl get nodes"
+                    sh "kubectl get pods"
 			    }
             }
         }
