@@ -3,14 +3,9 @@ pipeline {
 	stages {
 		stage("Lint Dockerfile") {
 			steps {
-				script {
-                    docker.image('hadolint/hadolint:latest-debian').inside() {
-                        sh "hadolint Dockerfile"
-                    }
-                }
+				sh "docker run --rm -i hadolint/hadolint < Dockerfile"
 			}
 		}
-
 
 		stage('Docker build & push') {
             steps {
