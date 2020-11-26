@@ -21,7 +21,7 @@ pipeline {
             steps {
 		        withAWS(credentials: 'aws-static', region: 'us-west-2') {
 			        sh "aws eks --region us-west-2 update-kubeconfig --name UdacityCapstoneProject-cluster"
-                    sh "kubectl apply -f udacity-capstone.yaml"
+                    sh "kubectl apply -f k8s/udacity-capstone.yaml"
 			    }
             }
         }
