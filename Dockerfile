@@ -1,4 +1,4 @@
-FROM nginx
+FROM nginx:latest
 
 ## Step 1:
 # Remove default index.html
