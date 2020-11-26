@@ -7,4 +7,3 @@ RUN rm /usr/share/nginx/html/index.html
 ## Step 2:
 # Copy custom index.html to nginx folder
 COPY index.html /usr/share/nginx/html
-COPY christmas_tree.jpg /usr/share/nginx/html

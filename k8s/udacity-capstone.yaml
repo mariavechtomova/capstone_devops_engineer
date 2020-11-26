@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
         - name: udacity-devops-capstone
-          image: mvechtomova/udacity-devops-capstone:latest
+          image: mvechtomova/udacity-devops-capstone:v1
           ports:
             - containerPort: 80
               name: http-server

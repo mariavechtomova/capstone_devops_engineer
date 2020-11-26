@@ -10,9 +10,10 @@ pipeline {
 		stage('Docker build & push') {
             steps {
                 script {
-                    dockerImage = docker.build("mvechtomova/udacity-devops-capstone:latest")
+                    dockerImage = docker.build("mvechtomova/udacity-devops-capstone")
 	                docker.withRegistry('', 'dockerhub_credentials') {
-						dockerImage.push()
+						dockerImage.push("latest")
+						dockerImage.push("v1")
 					}
 		        }
             }
