@@ -3,7 +3,7 @@ pipeline {
 	stages {
 		stage("Lint Dockerfile") {
 			steps {
-				sh "docker run --rm -i hadolint/hadolint:debian-latest < Dockerfile"
+				sh "hadolint Dockerfile"
 			}
 		}
 
